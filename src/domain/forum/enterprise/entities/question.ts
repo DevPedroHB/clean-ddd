@@ -4,7 +4,7 @@ import { Optional } from "@/core/types/optional";
 import dayjs from "dayjs";
 import { Slug } from "./value-objects/slug";
 
-interface IQuestion {
+export interface IQuestion {
   authorId: UniqueEntityID;
   bestAnswerId?: UniqueEntityID;
   title: string;
@@ -76,15 +76,15 @@ export class Question extends Entity<IQuestion> {
 
   static create(
     props: Optional<IQuestion, "createdAt" | "slug">,
-    id?: UniqueEntityID,
+    id?: UniqueEntityID
   ) {
     const question = new Question(
       {
         ...props,
         slug: props.slug ?? Slug.createFromText(props.title),
-        createdAt: new Date(),
+        createdAt: props.createdAt ?? new Date(),
       },
-      id,
+      id
     );
 
     return question;

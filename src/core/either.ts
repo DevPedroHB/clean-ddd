@@ -32,12 +32,12 @@ export class Right<L, R> {
   }
 }
 
-export type TEither<L, R> = Left<L, R> | Right<L, R>;
+export type Either<L, R> = Left<L, R> | Right<L, R>;
 
-export const left = <L, R>(value: L): TEither<L, R> => {
+export const left = <L, R>(value: L): Either<L, R> => {
   return new Left(value);
 };
 
-export const right = <L, R>(value: R): TEither<L, R> => {
+export const right = <L, R>(value: R): Either<L, R> => {
   return new Right(value);
 };

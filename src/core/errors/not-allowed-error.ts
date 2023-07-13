@@ -1,4 +1,4 @@
-import { IUseCaseError } from "@/core/errors/use-case-error";
+import { IUseCaseError } from "./use-case-error";
 
 export class NotAllowedError extends Error implements IUseCaseError {
   constructor() {

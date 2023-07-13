@@ -1,6 +1,6 @@
-import { TEither, left, right } from "./either";
+import { Either, left, right } from "./either";
 
-function doSomething(shouldSuccess: boolean): TEither<string, number> {
+function doSomething(shouldSuccess: boolean): Either<string, number> {
   if (shouldSuccess) {
     return right(10);
   } else {

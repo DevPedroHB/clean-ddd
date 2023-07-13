@@ -1,4 +1,4 @@
-import { TEither, right } from "@/core/either";
+import { Either, right } from "@/core/either";
 import { AnswerCommentsRepository } from "@/domain/forum/application/repositories/answer-comments-repository";
 import { AnswerComment } from "@/domain/forum/enterprise/entities/answer-comment";
 
@@ -7,7 +7,7 @@ interface FetchAnswerCommentsUseCaseRequest {
   page: number;
 }
 
-type FetchAnswerCommentsUseCaseResponse = TEither<
+type FetchAnswerCommentsUseCaseResponse = Either<
   null,
   {
     answerComments: AnswerComment[];

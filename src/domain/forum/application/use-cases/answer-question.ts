@@ -1,4 +1,4 @@
-import { TEither, right } from "@/core/either";
+import { Either, right } from "@/core/either";
 import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 import { Answer } from "../../enterprise/entities/answer";
 import { AnswerAttachment } from "../../enterprise/entities/answer-attachment";
@@ -12,7 +12,7 @@ interface AnswerQuestionUseCaseRequest {
   content: string;
 }
 
-type AnswerQuestionUseCaseResponse = TEither<
+type AnswerQuestionUseCaseResponse = Either<
   null,
   {
     answer: Answer;

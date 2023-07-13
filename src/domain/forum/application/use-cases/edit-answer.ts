@@ -1,12 +1,12 @@
-import { TEither, left, right } from "@/core/either";
+import { Either, left, right } from "@/core/either";
 import { UniqueEntityID } from "@/core/entities/unique-entity-id";
+import { NotAllowedError } from "@/core/errors/not-allowed-error";
+import { ResourceNotFoundError } from "@/core/errors/resource-not-found-error";
 import { Answer } from "@/domain/forum/enterprise/entities/answer";
 import { AnswerAttachmentList } from "../../enterprise/entities/answer-attachment-list";
 import { AnswerAttachmentsRepository } from "../repositories/answer-attachments-repository";
 import { AnswersRepository } from "../repositories/answers-repository";
 import { AnswerAttachment } from "./../../enterprise/entities/answer-attachment";
-import { NotAllowedError } from "./errors/not-allowed-error";
-import { ResourceNotFoundError } from "./errors/resource-not-found-error";
 
 interface EditAnswerUseCaseRequest {
   authorId: string;
@@ -15,7 +15,7 @@ interface EditAnswerUseCaseRequest {
   attachmentsIds: string[];
 }
 
-type EditAnswerUseCaseResponse = TEither<
+type EditAnswerUseCaseResponse = Either<
   ResourceNotFoundError | NotAllowedError,
   {
     answer: Answer;

@@ -1,16 +1,16 @@
-import { TEither, left, right } from "@/core/either";
+import { Either, left, right } from "@/core/either";
+import { NotAllowedError } from "@/core/errors/not-allowed-error";
+import { ResourceNotFoundError } from "@/core/errors/resource-not-found-error";
 import { QuestionsRepository } from "@/domain/forum/application/repositories/questions-repository";
 import { Question } from "@/domain/forum/enterprise/entities/question";
 import { AnswersRepository } from "../repositories/answers-repository";
-import { NotAllowedError } from "./errors/not-allowed-error";
-import { ResourceNotFoundError } from "./errors/resource-not-found-error";
 
 interface ChooseQuestionBestAnswerUseCaseRequest {
   authorId: string;
   answerId: string;
 }
 
-type ChooseQuestionBestAnswerUseCaseResponse = TEither<
+type ChooseQuestionBestAnswerUseCaseResponse = Either<
   ResourceNotFoundError | NotAllowedError,
   {
     question: Question;
